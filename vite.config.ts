@@ -13,5 +13,8 @@ export default defineConfig(() => ({
     react({
       jsxRuntime: 'classic'
     })
-  ]
+  ],
+  esbuild: {
+    logOverride: { 'this-is-undefined-in-esm': 'silent' }
+  }
 }))
