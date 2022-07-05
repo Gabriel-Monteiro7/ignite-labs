@@ -8,7 +8,7 @@ export const Container = styled.div.attrs({
 
 export const Content = styled.div.attrs({
   className:
-    'flex justify-between items-center flex-col border-t-2 border-gray-500 py-6 m-auto sm:flex-row'
+    'flex justify-between items-center flex-col border-t-2 border-gray-500 py-6 m-auto md:flex-row'
 })`
   width: calc(100vw - 3rem);
 `
@@ -19,13 +19,13 @@ export const Image = styled.img.attrs({
 })``
 
 export const LeftContainer = styled.div.attrs({
-  className: 'flex justify-between items-center flex-col sm:flex-row'
+  className: 'flex justify-between items-center flex-col md:flex-row'
 })``
 
 export const RightContainer = styled.div``
 
 export const Text = styled.p.attrs({
-  className: 'text-gray-300 mt-3 sm:mt-0 text-sm sm:text-base'
+  className: 'text-gray-300 mt-3 text-sm md:mt-0 md:text-base'
 })``
 
 export const BrandText = styled.span.attrs({
