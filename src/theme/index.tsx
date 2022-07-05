@@ -74,6 +74,10 @@ export const Theme: FC<{ children: JSX.Element }> = ({ children }) => {
       type: Types.changeTheme,
       theme
     })
+
+    const classList = document.documentElement.classList
+
+    if (theme === 'dark') classList.add('dark')
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 

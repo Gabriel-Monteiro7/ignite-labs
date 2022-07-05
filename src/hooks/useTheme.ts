@@ -13,6 +13,14 @@ export const useTheme = () => {
     })
 
     LocalStorageService.setItem('@theme', newtheme)
+
+    const classList = document.documentElement.classList
+
+    if (newtheme === 'dark') {
+      classList.add('dark')
+    } else {
+      classList.remove('dark')
+    }
   }
 
   return { changeTheme }
