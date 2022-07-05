@@ -1,24 +1,32 @@
+import { gql, useQuery } from '@apollo/client'
 import React from 'react'
-import Switch from '~/components/Switch'
+import Footer from '~/components/Footer'
 
-import { useStore } from '~/context'
-import { useTheme } from '~/hooks'
+import { Container } from './styles'
 
-import { Container, Text } from './styles'
-
+const GET_LESSONS_QUERY = gql`
+  query {
+    lessons {
+      id
+      slug
+      title
+      teacher {
+        avatarURL
+        id
+        name
+        bio
+      }
+    }
+  }
+`
 const Home: React.FC = () => {
-  const { state } = useStore()
+  const { data } = useQuery(GET_LESSONS_QUERY)
 
-  const { changeTheme } = useTheme()
+  console.log(data)
 
   return (
     <Container>
-      <Text>Ignite Labs</Text>
-
-      <Switch
-        selected={state.theme === 'dark' ? true : false}
-        onChange={changeTheme}
-      />
+      <Footer />
     </Container>
   )
 }

@@ -3,4 +3,16 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true
   },
+  "tailwindCSS.experimental.classRegex": [
+    "className\\: '([^']*)'",
+  ],
+  "editor.quickSuggestions": {
+    "strings": true
+  },
+  "tailwindCSS.classAttributes": [
+    "class",
+    "className",
+    "ngClass",
+    ".*styles"
+  ]
 }
