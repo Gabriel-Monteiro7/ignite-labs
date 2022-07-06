@@ -1,5 +1,5 @@
 import { render as rtlRender } from '@testing-library/react'
-import GlobalStyles from '~/styles/global'
+import GlobalStyles from '~/styles/globalStyles'
 import { Theme } from '~/theme'
 
 export * from '@testing-library/react'

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
 
 export const Container = styled.div.attrs({
-  className: 'bg-gray-900 min-h-screen relative'
+  className: 'flex justify-center items-center w-full bg-gray-700 p-5'
 })``
