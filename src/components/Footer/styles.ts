@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import Astronaut from '~/assets/images/astronaut.svg'
 
 export const Container = styled.div.attrs({
-  className: 'w-full absolute bottom-0 left-0 bg-gray-700'
+  className: 'w-full absolute bottom-0 left-0 bg-gray-900'
 })``
 
 export const Content = styled.div.attrs({
@@ -29,6 +29,5 @@ export const Text = styled.p.attrs({
 })``
 
 export const BrandText = styled.span.attrs({
-  className:
-    'text-white font-semibold flex justify-between items-center mr-8 text-2xl'
+  className: 'text-white flex justify-between items-center mr-8 text-2xl'
 })``
