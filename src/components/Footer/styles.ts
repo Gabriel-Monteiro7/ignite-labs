@@ -15,7 +15,8 @@ export const Content = styled.div.attrs({
 
 export const Image = styled.img.attrs({
   src: Astronaut,
-  className: 'h-10  object-cover block mr-1'
+  alt: 'Imagem de um astronauta',
+  className: 'h-10 mr-1'
 })``
 
 export const LeftContainer = styled.div.attrs({
