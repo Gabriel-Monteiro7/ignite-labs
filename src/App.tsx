@@ -1,4 +1,4 @@
-import Page from '~/pages/Home'
+import Page from '~/pages/Event'
 import { StoreProvider } from '~/context'
 import GlobalStyles from './styles/globalStyles'
 import { Theme } from './theme'

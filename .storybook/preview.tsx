@@ -1,4 +1,4 @@
-import GlobalStyles from '../src/styles/global'
+import GlobalStyles from '../src/styles/globalStyles'
 import { Theme } from '../src/theme'
 
 export const decorators = [
