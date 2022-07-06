@@ -3,15 +3,13 @@ import styled from 'styled-components'
 import Astronaut from '~/assets/images/astronaut.svg'
 
 export const Container = styled.div.attrs({
-  className: 'w-full absolute bottom-0 left-0 bg-gray-900'
+  className: 'min-w-screen bg-gray-900'
 })``
 
 export const Content = styled.div.attrs({
   className:
-    'flex justify-between items-center flex-col border-t-2 border-gray-500 py-6 m-auto md:flex-row'
-})`
-  width: calc(100vw - 3rem);
-`
+    'flex justify-between items-center flex-col border-t-2 border-gray-500 py-6 m-auto flex-wrap md:flex-row'
+})``
 
 export const Image = styled.img.attrs({
   src: Astronaut,
@@ -20,7 +18,7 @@ export const Image = styled.img.attrs({
 })``
 
 export const LeftContainer = styled.div.attrs({
-  className: 'flex justify-between items-center flex-col md:flex-row'
+  className: 'flex justify-between items-center flex-col flex-wrap md:flex-row '
 })``
 
 export const RightContainer = styled.div``
