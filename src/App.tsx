@@ -1,5 +1,5 @@
 import Page from '~/pages/Event'
-import { StoreProvider } from '~/context'
+import { Provider } from '~/context'
 import GlobalStyles from './styles/globalStyles'
 import { Theme } from './theme'
 import { ApolloProvider } from '@apollo/client'
@@ -8,14 +8,14 @@ import { client } from './config/apollo-client'
 function App() {
   return (
     <ApolloProvider client={client}>
-      <StoreProvider>
+      <Provider>
         <Theme>
           <>
             <GlobalStyles />
             <Page />
           </>
         </Theme>
-      </StoreProvider>
+      </Provider>
     </ApolloProvider>
   )
 }

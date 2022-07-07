@@ -1,32 +1,30 @@
-import React, { createContext, useContext, useReducer } from 'react'
+import React, {
+  createContext,
+  useContext as reactUseContext,
+  useReducer
+} from 'react'
 
-import { StoreState, reducer, Actions } from './reducer'
+import { State, reducer, Actions, initialState } from './reducer'
 
-interface IStoreContext {
-  state: StoreState
+interface IContext {
+  state: State
   dispatch: React.Dispatch<Actions>
 }
 
-export const initialState: StoreState = {
-  theme: 'dark'
-}
-
-export const StoreContext = createContext<IStoreContext>({
+export const _Context = createContext<IContext>({
   state: initialState,
   dispatch: () => null
 })
 
-export const StoreProvider: React.FC<{ children: JSX.Element }> = ({
-  children
-}) => {
+export const Provider: React.FC<{ children: JSX.Element }> = ({ children }) => {
   const [state, dispatch] = useReducer(reducer, initialState)
   const value = { state, dispatch }
 
-  return <StoreContext.Provider value={value}>{children}</StoreContext.Provider>
+  return <_Context.Provider value={value}>{children}</_Context.Provider>
 }
 
-export const useStore = (): IStoreContext => {
-  const { state, dispatch } = useContext(StoreContext)
+export const useContext = (): IContext => {
+  const { state, dispatch } = reactUseContext(_Context)
 
   return { state, dispatch }
 }
