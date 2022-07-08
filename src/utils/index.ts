@@ -7,7 +7,7 @@ export const { format: formatPrice } = new Intl.NumberFormat('pt-BR', {
   minimumFractionDigits: 2
 })
 
-export const formatDate = (date: Date, _format = "dd'/'MM'/'yyyy") => {
+export const formatDate = (date: string, _format = "dd'/'MM'/'yyyy") => {
   return format(new Date(date), _format, {
     locale: ptBR
   })
