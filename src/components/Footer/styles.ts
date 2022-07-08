@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-import Astronaut from '~/assets/images/astronaut.svg'
+import _Logo from '~/components/Logo'
 
 export const Container = styled.div.attrs({
   className: 'min-w-screen bg-gray-900'
@@ -8,25 +8,21 @@ export const Container = styled.div.attrs({
 
 export const Content = styled.div.attrs({
   className:
-    'flex justify-between items-center flex-col border-t-2 border-gray-500 py-6 m-auto flex-wrap md:flex-row'
-})``
-
-export const Image = styled.img.attrs({
-  src: Astronaut,
-  alt: 'Imagem de um astronauta',
-  className: 'h-10 mr-1'
+    'flex justify-between items-center flex-col border-t-2 border-gray-500 py-6 m-auto flex-wrap lg:flex-row'
 })``
 
 export const LeftContainer = styled.div.attrs({
-  className: 'flex justify-between items-center flex-col flex-wrap md:flex-row '
-})``
+  className: 'flex justify-between items-center flex-col flex-wrap lg:flex-row '
+})`
+  svg {
+    margin-right: 1rem;
+  }
+`
 
 export const RightContainer = styled.div``
 
 export const Text = styled.p.attrs({
-  className: 'text-gray-300 mt-3 text-sm md:mt-0 md:text-base'
+  className: 'text-gray-300 mt-3 text-sm lg:mt-0 lg:text-base'
 })``
 
-export const BrandText = styled.span.attrs({
-  className: 'text-white flex justify-between items-center mr-8 text-2xl'
-})``
+export const Logo = styled(_Logo)``
