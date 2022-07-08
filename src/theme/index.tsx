@@ -1,6 +1,6 @@
 import { ThemeProvider as ThemeProviderStyled } from 'styled-components'
 
-import { ThemeStore, Types, useStore } from '~/context'
+import { ThemeState, Types, useContext } from '~/context'
 import { FC, useEffect } from 'react'
 import { LocalStorageService } from '~/services/LocalStorage'
 
@@ -54,7 +54,7 @@ const dark = {
 const themes = { light, dark }
 
 const ThemeDefault: FC<{ children: JSX.Element }> = ({ children }) => {
-  const { state } = useStore()
+  const { state } = useContext()
   const theme = state?.theme
 
   const defaultTheme = themes[theme]
@@ -65,10 +65,10 @@ const ThemeDefault: FC<{ children: JSX.Element }> = ({ children }) => {
 }
 
 export const Theme: FC<{ children: JSX.Element }> = ({ children }) => {
-  const { dispatch } = useStore()
+  const { dispatch } = useContext()
 
   useEffect(() => {
-    const theme = LocalStorageService.getItem<ThemeStore>('@theme') ?? 'light'
+    const theme = LocalStorageService.getItem<ThemeState>('@theme') ?? 'light'
 
     dispatch({
       type: Types.changeTheme,

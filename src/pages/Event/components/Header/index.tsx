@@ -1,13 +1,28 @@
 import React from 'react'
+import useMediaQuery from '~/hooks/useMediaQuery'
 
-import { Container } from './styles'
+import { useContext, Types } from '../../context'
 
-import Logo from '~/components/Logo'
+import { Container, ToogleContainer, ToggleIcon, Logo } from './styles'
 
 const Header: React.FC = () => {
+  const { state, dispatch } = useContext()
+  const desktopLayout = useMediaQuery('lg')
+
+  const handleOpenLessonsTimeline = () => {
+    dispatch({
+      type: Types.toogleOpenLessonsTimeline
+    })
+  }
+
   return (
     <Container>
       <Logo />
+      {!desktopLayout && (
+        <ToogleContainer onClick={handleOpenLessonsTimeline}>
+          Aulas <ToggleIcon $openLessonsTimeline={state.openLessonsTimeline} />
+        </ToogleContainer>
+      )}
     </Container>
   )
 }

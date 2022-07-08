@@ -2,12 +2,11 @@ import React from 'react'
 
 import {
   Container,
-  Image,
   LeftContainer,
   RightContainer,
   Text,
-  BrandText,
-  Content
+  Content,
+  Logo
 } from './styles'
 
 const Footer: React.FC = () => {
@@ -15,10 +14,7 @@ const Footer: React.FC = () => {
     <Container>
       <Content>
         <LeftContainer>
-          <BrandText>
-            <Image />
-            Ignite Labs
-          </BrandText>
+          <Logo />
           <Text>Ignite Labs - Todos os direitos reservados</Text>
         </LeftContainer>
         <RightContainer>

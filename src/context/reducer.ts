@@ -1,7 +1,10 @@
-export type ThemeStore = 'light' | 'dark'
+export type ThemeState = 'light' | 'dark'
 
-export interface StoreState {
-  theme: ThemeStore
+export const initialState: State = {
+  theme: 'dark'
+}
+export interface State {
+  theme: ThemeState
 }
 
 export enum Types {
@@ -10,10 +13,10 @@ export enum Types {
 
 export type Actions = {
   type: Types.changeTheme
-  theme: ThemeStore
+  theme: ThemeState
 }
 
-export const reducer = (state: StoreState, action: Actions) => {
+export const reducer = (state: State, action: Actions) => {
   switch (action.type) {
     case Types.changeTheme:
       return { ...state, theme: action.theme }
