@@ -1,4 +1,5 @@
 import { gql, useQuery } from '@apollo/client'
+import { Provider } from './context'
 
 import Header from './components/Header'
 import LessonsTimeline from './components/LessonsTimeline'
@@ -27,13 +28,15 @@ const Home: React.FC = () => {
   console.log(data)
 
   return (
-    <Container>
-      <Header />
-      <InnerContainer>
-        <SelectedLesson />
-        <LessonsTimeline />
-      </InnerContainer>
-    </Container>
+    <Provider>
+      <Container>
+        <Header />
+        <InnerContainer>
+          <SelectedLesson />
+          <LessonsTimeline />
+        </InnerContainer>
+      </Container>
+    </Provider>
   )
 }
 

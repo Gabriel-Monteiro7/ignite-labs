@@ -6,6 +6,7 @@ function Logo() {
       height="34"
       fill="none"
       viewBox="0 0 237 34"
+      data-testid="logo"
     >
       <path
         fill="#fff"
