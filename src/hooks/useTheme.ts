@@ -1,8 +1,8 @@
 import { LocalStorageService } from '~/services/LocalStorage'
-import { Types, useStore } from '~/context'
+import { Types, useContext } from '~/context'
 
 export const useTheme = () => {
-  const { state, dispatch } = useStore()
+  const { state, dispatch } = useContext()
 
   const changeTheme = () => {
     const newtheme = state.theme === 'light' ? 'dark' : 'light'

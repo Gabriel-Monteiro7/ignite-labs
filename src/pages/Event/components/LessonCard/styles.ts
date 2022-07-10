@@ -10,7 +10,9 @@ interface ILessonType {
 
 import { CheckCircle as _CheckCircle, Lock as _Lock } from 'phosphor-react'
 
-export const Container = styled.div.attrs({ className: 'pt-6' })``
+export const Container = styled.div.attrs({
+  className: 'mt-6 cursor-pointer'
+})``
 
 export const AvailableAt = styled.p.attrs({
   className: 'text-gray-300 first-letter:uppercase'
@@ -40,6 +42,12 @@ export const Title = styled.strong.attrs({
   className: 'text-gray-200 '
 })``
 
-export const CheckCircle = styled(_CheckCircle).attrs({ size: 20 })``
+export const CheckCircle = styled(_CheckCircle).attrs({
+  size: 20,
+  'data-testid': 'checkCircleIcon'
+})``
 
-export const Lock = styled(_Lock).attrs({ size: 20 })``
+export const Lock = styled(_Lock).attrs({
+  size: 20,
+  'data-testid': 'lockIcon'
+})``

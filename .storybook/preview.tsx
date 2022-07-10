@@ -1,3 +1,4 @@
+import React from 'react'
 import GlobalStyles from '../src/styles/globalStyles'
 import { Theme } from '../src/theme'
 
@@ -19,5 +20,14 @@ export const parameters = {
       color: /(background|color)$/i,
       date: /Date$/
     }
+  },
+  backgrounds: {
+    default: 'default',
+    values: [
+      {
+        name: 'default',
+        value: '#121214'
+      }
+    ]
   }
 }
