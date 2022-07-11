@@ -6,7 +6,7 @@ import SelectedLesson from './components/SelectedLesson'
 
 import { Container, InnerContainer } from './styles'
 
-const Home: React.FC = () => {
+const Event: React.FC = () => {
   return (
     <Provider>
       <Container>
@@ -20,4 +20,4 @@ const Home: React.FC = () => {
   )
 }
 
-export default Home
+export default Event

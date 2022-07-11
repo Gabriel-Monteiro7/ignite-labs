@@ -1,4 +1,5 @@
-import React from 'react'
+import { useParams } from 'react-router-dom'
+
 import { formatDate } from '~/utils'
 
 import { isPast } from 'date-fns'
@@ -22,12 +23,20 @@ type LessonCardProps = {
   slug: string
 }
 
+type Params = {
+  slug?: string
+}
+
 const LessonCard: React.FC<LessonCardProps> = ({
   title,
   lessonType,
   availableAt,
   slug
 }) => {
+  const params = useParams<Params>()
+
+  const isSelected = slug === params?.slug
+
   const isLessonAvailable = isPast(new Date(availableAt))
     ? 'available'
     : 'unAvailable'
@@ -62,21 +71,27 @@ const LessonCard: React.FC<LessonCardProps> = ({
 
   const { title: lessonTypeLabel } = lessonTypes[lessonType]
 
+  const availableAtFormatted = formatDate(
+    availableAt,
+    "EEEE' • 'd' de 'MMMM' • 'k'h'mm"
+  )
+
   return (
-    <Container>
-      <AvailableAt>
-        {formatDate(availableAt, "EEEE' • 'd' de 'MMMM' • 'k'h'mm")}
-      </AvailableAt>
-      <Content>
+    <Container to={`/event/lesson/${slug}`}>
+      <AvailableAt>{availableAtFormatted}</AvailableAt>
+      <Content $isSelected={isSelected}>
         <Header>
-          <LessonTypeLabelAvailable $labelColor={labelColor}>
+          <LessonTypeLabelAvailable
+            $labelColor={labelColor}
+            $isSelected={isSelected}
+          >
             {icon} {lessonTypeLabelAvailable}
           </LessonTypeLabelAvailable>
-          <LessonType $isLive={lessonType === 'live'}>
+          <LessonType $isLive={lessonType === 'live'} $isSelected={isSelected}>
             {lessonTypeLabel}
           </LessonType>
         </Header>
-        <Title>{title}</Title>
+        <Title $isSelected={isSelected}>{title}</Title>
       </Content>
     </Container>
   )

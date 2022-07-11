@@ -1,9 +1,12 @@
-import Page from '~/pages/Event'
-import { Provider } from '~/context'
-import GlobalStyles from './styles/globalStyles'
-import { Theme } from './theme'
 import { ApolloProvider } from '@apollo/client'
 import { client } from './config/apollo-client'
+
+import { Provider } from '~/context'
+
+import Router from './routes'
+
+import { Theme } from './theme'
+import GlobalStyles from './styles/globalStyles'
 
 function App() {
   return (
@@ -12,7 +15,7 @@ function App() {
         <Theme>
           <>
             <GlobalStyles />
-            <Page />
+            <Router />
           </>
         </Theme>
       </Provider>
