@@ -5,5 +5,5 @@ export const Container = styled.div.attrs({
 })``
 
 export const InnerContainer = styled.main.attrs({
-  className: 'flex justify-between flex-1'
+  className: 'flex flex-1 relative'
 })``

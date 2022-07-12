@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 
 import { Link } from 'react-router-dom'
 
+import { CheckCircle as _CheckCircle, Lock as _Lock } from 'phosphor-react'
 interface ILessonTypeLabelAvailable {
   $labelColor: string
   $isSelected: boolean
@@ -23,8 +24,6 @@ interface ITitle {
 interface IContainer {
   $pointerBlock: boolean
 }
-
-import { CheckCircle as _CheckCircle, Lock as _Lock } from 'phosphor-react'
 
 export const Container = styled(Link).attrs<IContainer>(
   ({ $pointerBlock }) => ({
