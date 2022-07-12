@@ -9,7 +9,8 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    "storybook-react-context"
+    "storybook-react-context",
+    "storybook-addon-react-router-v6"
   ],
   framework: "@storybook/react",
   core: {

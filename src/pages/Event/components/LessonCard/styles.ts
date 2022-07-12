@@ -20,11 +20,17 @@ interface ITitle {
   $isSelected: boolean
 }
 
+interface IContainer {
+  $pointerBlock: boolean
+}
+
 import { CheckCircle as _CheckCircle, Lock as _Lock } from 'phosphor-react'
 
-export const Container = styled(Link).attrs({
-  className: 'group'
-})``
+export const Container = styled(Link).attrs<IContainer>(
+  ({ $pointerBlock }) => ({
+    className: `group ${$pointerBlock && 'pointer-events-none	'}`
+  })
+)<IContainer>``
 
 export const AvailableAt = styled.p.attrs({
   className: 'text-gray-300 first-letter:uppercase mt-6'

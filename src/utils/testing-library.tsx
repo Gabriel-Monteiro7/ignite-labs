@@ -4,14 +4,16 @@ import { Theme } from '~/theme'
 
 export * from '@testing-library/react'
 
+import { BrowserRouter as Router } from 'react-router-dom'
+
 const render = (ui: any, { ...renderOptions } = {}) => {
   const Wrapper = ({ children }: { children: JSX.Element }) => {
     return (
       <Theme>
-        <>
+        <Router>
           <GlobalStyles />
           {children}
-        </>
+        </Router>
       </Theme>
     )
   }
@@ -19,4 +21,8 @@ const render = (ui: any, { ...renderOptions } = {}) => {
   return rtlRender(ui, { wrapper: Wrapper, ...renderOptions })
 }
 
-export { render }
+const renderSpyOn = (library: any, functionSpyOn: string, mockReturn: any) => {
+  return jest.spyOn(library, functionSpyOn).mockReturnValue(mockReturn)
+}
+
+export { render, renderSpyOn }

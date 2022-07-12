@@ -45,12 +45,14 @@ const LessonCard: React.FC<LessonCardProps> = ({
     available: {
       icon: <CheckCircle />,
       title: 'Conteúdo liberado',
-      color: 'text-blue-500'
+      color: 'text-blue-500',
+      pointerBlock: false
     },
     unAvailable: {
       icon: <Lock />,
       title: 'Em breve',
-      color: 'text-orange-500'
+      color: 'text-orange-500',
+      pointerBlock: true
     }
   }
 
@@ -66,7 +68,8 @@ const LessonCard: React.FC<LessonCardProps> = ({
   const {
     icon,
     title: lessonTypeLabelAvailable,
-    color: labelColor
+    color: labelColor,
+    pointerBlock
   } = lessonAvailableType[isLessonAvailable]
 
   const { title: lessonTypeLabel } = lessonTypes[lessonType]
@@ -76,8 +79,14 @@ const LessonCard: React.FC<LessonCardProps> = ({
     "EEEE' • 'd' de 'MMMM' • 'k'h'mm"
   )
 
+  const handleGotoLesson = () => {
+    if (isLessonAvailable === 'unAvailable') return ''
+
+    return `/event/lesson/${slug}`
+  }
+
   return (
-    <Container to={`/event/lesson/${slug}`}>
+    <Container to={handleGotoLesson()} $pointerBlock={pointerBlock}>
       <AvailableAt>{availableAtFormatted}</AvailableAt>
       <Content $isSelected={isSelected}>
         <Header>
