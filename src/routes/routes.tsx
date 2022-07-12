@@ -1,3 +1,5 @@
+import { Navigate } from 'react-router-dom'
+
 import Home from '~/pages/Home'
 import Event from '~/pages/Event'
 
@@ -10,8 +12,15 @@ interface Route {
   index?: boolean
 }
 
-export const HomeRoute: Route = {
+export const NotFoundRoute: Route = {
   id: 1,
+  path: '*',
+  url: '*',
+  element: <Navigate to="/" replace />
+}
+
+export const HomeRoute: Route = {
+  id: 2,
   exact: true,
   path: '/',
   url: '/',
@@ -19,17 +28,22 @@ export const HomeRoute: Route = {
 }
 
 export const EventRoute: Route = {
-  id: 2,
+  id: 3,
   path: '/event/*',
   url: '/event',
   element: <Event />
 }
 
 export const EventLessonRoute: Route = {
-  id: 3,
+  id: 4,
   path: '/event/lesson/:slug',
   url: '/event/lesson',
   element: <Event />
 }
 
-export const routes: Route[] = [HomeRoute, EventRoute, EventLessonRoute]
+export const routes: Route[] = [
+  NotFoundRoute,
+  HomeRoute,
+  EventRoute,
+  EventLessonRoute
+]

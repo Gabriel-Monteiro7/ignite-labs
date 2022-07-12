@@ -8,7 +8,7 @@ import LessonCard from '../LessonCard'
 
 import Loading from './Loading'
 
-import { Container, Title } from './styles'
+import { Container, Title, LessonsContainer } from './styles'
 
 const GET_LESSONS_QUERY = gql`
   query {
@@ -37,27 +37,38 @@ type Params = {
 }
 
 const SelectedLesson: React.FC = () => {
-  const params = useParams<Params>()
+  const { slug } = useParams<Params>()
   const navigate = useNavigate()
 
   const { state } = useContext()
 
   const { loading, data } = useQuery<GetLessonsQueryResponse>(GET_LESSONS_QUERY)
 
+  const handleRedirect = (redirect = '/') => {
+    navigate(redirect, {
+      replace: true
+    })
+  }
+
   useEffect(() => {
+    if (loading) return
     const lessonDefault = data?.lessons[0]
 
-    if (lessonDefault && !params.slug)
-      navigate('/event/lesson/' + lessonDefault.slug)
-  }, [data?.lessons, navigate, params.slug])
+    if (!lessonDefault) handleRedirect()
+    else if (!slug) handleRedirect('/event/lesson/' + lessonDefault.slug)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [data?.lessons, loading, slug])
 
   return (
     <Container $openLessonsTimeline={state.openLessonsTimeline}>
       <Title>Cronograma das aulas</Title>
       {loading && <Loading />}
-      {data?.lessons.map((lesson) => (
-        <LessonCard {...lesson} key={lesson?.id} />
-      ))}
+      <LessonsContainer>
+        {data?.lessons.map((lesson) => (
+          <LessonCard {...lesson} key={lesson?.id} />
+        ))}
+      </LessonsContainer>
     </Container>
   )
 }

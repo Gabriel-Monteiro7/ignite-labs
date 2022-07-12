@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import _Logo from '~/components/Logo'
 
 export const Container = styled.div.attrs({
-  className: 'min-w-screen bg-gray-900'
+  className: 'min-w-screen bg-gray-900 mx-6'
 })``
 
 export const Content = styled.div.attrs({
