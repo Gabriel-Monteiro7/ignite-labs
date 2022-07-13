@@ -1,8 +1,8 @@
 import styled from 'styled-components'
 
-const variants = {
+export const variants = {
   contained: `bg-green-500 hover:bg-green-700`,
-  outlined: `border-blue-500 border text-blue-500 hover:bg-blue-500 hover:text-gray-900`
+  outlined: `border-blue-500 border !text-blue-500 hover:bg-blue-500 hover:!text-gray-900`
 }
 
 interface IContainer {
@@ -19,8 +19,17 @@ export const Container = styled.button.attrs<IContainer>(({ $variant }) => {
   return {
     className
   }
-})<IContainer>``
+})<IContainer>`
+  svg {
+    width: 1.5rem;
+    height: 1.5rem;
+  }
+`
 
 export const Title = styled.span.attrs({
   className: ''
+})``
+
+export const Center = styled.div.attrs({
+  className: 'flex justify-center items-center min-h-screen'
 })``
