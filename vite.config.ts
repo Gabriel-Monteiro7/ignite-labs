@@ -9,11 +9,7 @@ export default defineConfig(() => ({
   resolve: {
     alias: [{ find: '~', replacement: path.resolve(__dirname, '/src') }]
   },
-  plugins: [
-    react({
-      jsxRuntime: 'classic'
-    })
-  ],
+  plugins: [react()],
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' }
   }
