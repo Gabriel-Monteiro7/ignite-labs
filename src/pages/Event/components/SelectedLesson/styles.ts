@@ -14,11 +14,15 @@ export const InnerContainer = styled.div.attrs({
 })``
 
 export const VideoContainer = styled.div.attrs({
-  className: 'bg-white w-full max-h-[60vh] aspect-video'
+  className: 'bg-black flex justify-center'
+})``
+
+export const Video = styled.div.attrs({
+  className: 'h-full w-full max-w-[1100px] max-h-[60vh] aspect-video'
 })``
 
 export const Content = styled.div.attrs({
-  className: 'py-8 px-6 flex items-start gap-16 lg:flex-row flex-col'
+  className: 'py-8 px-6 flex items-start gap-16 lg:flex-row flex-col flex-wrap'
 })``
 
 export const InnerContent = styled.div.attrs({
@@ -43,4 +47,8 @@ export const DiscordLogo = styled(_DiscordLogo).attrs({
 
 export const Lightning = styled(_Lightning).attrs({
   'data-testid': 'LightningIcon'
+})``
+
+export const CardContainer = styled.div.attrs({
+  className: ' flex flex-col sm:flex-row gap-4 md:gap-6 w-full flex-wrap'
 })``
