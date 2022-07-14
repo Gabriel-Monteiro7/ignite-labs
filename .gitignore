@@ -11,8 +11,8 @@ node_modules
 dist
 dist-ssr
 covarege
+storybook-static
 *.local
-
 # Editor directories and files
 # .vscode/*
 # !.vscode/extensions.json
