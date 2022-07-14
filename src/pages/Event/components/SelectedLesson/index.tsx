@@ -6,27 +6,34 @@ import Footer from '~/components/Footer'
 import Button from '~/components/Button'
 
 import Profile from '../Profile'
+import InformationCard from '../InformationCard'
 
 import { HomeRoute } from '~/routes/routes'
+
+import ReactPlayer from 'react-player/youtube'
 
 import {
   Container,
   InnerContainer,
   VideoContainer,
+  Video,
   Content,
   Title,
   Description,
   InnerContent,
   ButtonContainer,
   DiscordLogo,
-  Lightning
+  Lightning,
+  CardContainer
 } from './styles'
+
+import '@vime/core/themes/default.css'
 
 const GET_LESSON_BY_SLUG_QUERY = gql`
   query GetLessonBySlug($slug: String) {
     lesson(where: { slug: $slug }) {
       title
-      videoId
+      videoUrl
       description
       teacher {
         bio
@@ -40,7 +47,7 @@ const GET_LESSON_BY_SLUG_QUERY = gql`
 interface GetLessonBySlugReponse {
   lesson: {
     title: string
-    videoId: string
+    videoUrl: string
     description: string
     teacher: {
       bio: string
@@ -59,6 +66,8 @@ type Button = {
   title: string
   variant: 'contained' | 'outlined'
 }
+
+type Card = 'exclusiveWallpapers' | 'complementaryMaterial'
 
 const SelectedLesson: React.FC = () => {
   const { slug } = useParams<Params>()
@@ -83,6 +92,8 @@ const SelectedLesson: React.FC = () => {
     { icon: <Lightning />, title: 'Acesse o desafio', variant: 'outlined' }
   ]
 
+  const cards: Card[] = ['complementaryMaterial', 'exclusiveWallpapers']
+
   useEffect(() => {
     const shouldRedirect = !loading && !data?.lesson && slug
 
@@ -91,11 +102,20 @@ const SelectedLesson: React.FC = () => {
 
   return (
     <Container>
-      {loading ? (
-        <div>asdasd</div>
+      {!data || !data.lesson ? (
+        <div>Carregando</div>
       ) : (
         <InnerContainer>
-          <VideoContainer />
+          <VideoContainer>
+            <Video>
+              <ReactPlayer
+                controls
+                url={data?.lesson?.videoUrl}
+                width="100%"
+                height="100%"
+              />
+            </Video>
+          </VideoContainer>
           <Content>
             <InnerContent>
               <Title>{data?.lesson?.title}</Title>
@@ -108,6 +128,11 @@ const SelectedLesson: React.FC = () => {
                 <Button {...button} key={index} />
               ))}
             </ButtonContainer>
+            <CardContainer>
+              {cards.map((card, index) => (
+                <InformationCard variant={card} key={index} />
+              ))}
+            </CardContainer>
           </Content>
         </InnerContainer>
       )}
