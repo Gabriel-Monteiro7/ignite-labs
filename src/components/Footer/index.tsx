@@ -6,7 +6,9 @@ import {
   RightContainer,
   Text,
   Content,
-  Logo
+  Logo,
+  Link,
+  LinkToHome
 } from './styles'
 
 const Footer: React.FC = () => {
@@ -14,11 +16,13 @@ const Footer: React.FC = () => {
     <Container>
       <Content>
         <LeftContainer>
-          <Logo />
+          <Link to="/event">
+            <Logo />
+          </Link>
           <Text>Ignite Labs - Todos os direitos reservados</Text>
         </LeftContainer>
         <RightContainer>
-          <Text>Políticas de privacidade</Text>
+          <LinkToHome>Voltar para a Home</LinkToHome>
         </RightContainer>
       </Content>
     </Container>
