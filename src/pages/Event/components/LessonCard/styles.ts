@@ -32,7 +32,7 @@ export const Container = styled(Link).attrs<IContainer>(
 )<IContainer>``
 
 export const AvailableAt = styled.p.attrs({
-  className: 'text-gray-300 first-letter:uppercase mt-6'
+  className: 'text-gray-300 first-letter:uppercase'
 })``
 
 export const Content = styled.div.attrs<IContent>(({ $isSelected }) => {

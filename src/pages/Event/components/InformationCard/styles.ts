@@ -4,7 +4,7 @@ import { CaretRight } from 'phosphor-react'
 
 export const Container = styled.a.attrs({
   className:
-    'flex items-stretch bg-gray-700 rounded-md hover:bg-gray-600 transition-colors ] w-full md:w-[29rem] cursor-pointer	'
+    'flex items-stretch justify-between bg-gray-700 rounded-md hover:bg-gray-600 transition-colors ] w-full md:w-[32rem] cursor-pointer	'
 })``
 
 export const IconContainer = styled.div.attrs({
