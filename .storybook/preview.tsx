@@ -1,6 +1,7 @@
 import React from 'react'
 import GlobalStyles from '../src/styles/globalStyles'
 import { Theme } from '../src/theme'
+import { themes } from '@storybook/theming';
 
 export const decorators = [
   (Story) => (
@@ -29,5 +30,8 @@ export const parameters = {
         value: '#09090A'
       }
     ]
+  },
+  docs: {
+    theme: themes.dark
   }
 }
