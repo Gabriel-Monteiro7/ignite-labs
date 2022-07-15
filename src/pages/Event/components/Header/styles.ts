@@ -16,7 +16,7 @@ const icon = css`
 
 export const Logo = styled(_Logo)``
 
-export const Container = styled.div.attrs({
+export const Container = styled.header.attrs({
   className:
     'flex items-center min-w-screen bg-gray-700 p-5 border-b border-gray-600 justify-between lg:justify-center'
 })`

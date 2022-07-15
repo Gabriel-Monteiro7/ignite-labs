@@ -24,7 +24,9 @@ import {
   ButtonContainer,
   DiscordLogo,
   Lightning,
-  CardContainer
+  CardContainer,
+  LoaderVideo,
+  LoaderContent
 } from './styles'
 
 const GET_LESSON_BY_SLUG_QUERY = gql`
@@ -98,42 +100,50 @@ const SelectedLesson: React.FC = () => {
     if (shouldRedirect) navigate(HomeRoute.url)
   }, [loading, data, navigate, location.key, slug])
 
+  const renderVideoWithLoader = () =>
+    !data?.lesson?.videoUrl ? (
+      <LoaderVideo />
+    ) : (
+      <ReactPlayer
+        controls
+        url={data?.lesson?.videoUrl}
+        width="100%"
+        height="100%"
+      />
+    )
+
+  const renderContentWithLoader = () =>
+    !data?.lesson ? (
+      <LoaderContent />
+    ) : (
+      <>
+        <Title>{data?.lesson?.title}</Title>
+        <Description>{data?.lesson?.description}</Description>
+        <Profile {...data?.lesson?.teacher} />
+      </>
+    )
+
   return (
     <Container>
-      {!data || !data.lesson ? (
-        <div>Carregando</div>
-      ) : (
-        <InnerContainer>
-          <VideoContainer>
-            <Video>
-              <ReactPlayer
-                controls
-                url={data?.lesson?.videoUrl}
-                width="100%"
-                height="100%"
-              />
-            </Video>
-          </VideoContainer>
-          <Content>
-            <InnerContent>
-              <Title>{data?.lesson?.title}</Title>
-              <Description>{data?.lesson?.description}</Description>
-              <Profile {...data?.lesson?.teacher} />
-            </InnerContent>
+      <InnerContainer>
+        <VideoContainer>
+          <Video>{renderVideoWithLoader()}</Video>
+        </VideoContainer>
+        <Content>
+          <InnerContent>{renderContentWithLoader()}</InnerContent>
 
-            <ButtonContainer>
-              {buttons.map((button, index) => (
-                <Button {...button} key={index} />
-              ))}
-            </ButtonContainer>
-            <CardContainer>
-              {cards.map((card, index) => (
-                <InformationCard variant={card} key={index} />
-              ))}
-            </CardContainer>
-          </Content>
-        </InnerContainer>
-      )}
+          <ButtonContainer>
+            {buttons.map((button, index) => (
+              <Button {...button} key={index} />
+            ))}
+          </ButtonContainer>
+          <CardContainer>
+            {cards.map((card, index) => (
+              <InformationCard variant={card} key={index} />
+            ))}
+          </CardContainer>
+        </Content>
+      </InnerContainer>
 
       <Footer />
     </Container>

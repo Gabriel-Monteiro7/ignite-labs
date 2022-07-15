@@ -6,11 +6,12 @@ type ButtonProps = {
   title: string
   icon?: ReactElement
   variant: 'contained' | 'outlined'
+  onClick?: () => void
 }
 
-const Button: React.FC<ButtonProps> = ({ variant, title, icon }) => {
+const Button: React.FC<ButtonProps> = ({ variant, title, icon, onClick }) => {
   return (
-    <Container $variant={variant}>
+    <Container $variant={variant} onClick={onClick}>
       {icon && icon}
       <Title>{title}</Title>
     </Container>

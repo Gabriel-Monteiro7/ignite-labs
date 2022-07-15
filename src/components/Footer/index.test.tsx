@@ -8,7 +8,7 @@ describe('<Footer/>', () => {
     render(<Footer />)
 
     getByText('Ignite Labs - Todos os direitos reservados')
-    getByText('Políticas de privacidade')
+    getByText('Voltar para a Home')
   })
   it('Check if the image is correct', () => {
     render(<Footer />)
