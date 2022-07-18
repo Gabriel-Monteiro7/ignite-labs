@@ -7,6 +7,7 @@ import {
   Content,
   Image,
   Title,
+  Description,
   ColorfulTitle,
   LeftContent,
   RightContent
@@ -24,6 +25,11 @@ const Home: React.FC = () => {
               zero, com
               <ColorfulTitle>React JS</ColorfulTitle>
             </Title>
+            <Description>
+              Em apenas uma semana você vai dominar na prática uma das
+              tecnologias mais utilizadas e com alta demanda para acessar as
+              melhores oportunidades do mercado.
+            </Description>
           </LeftContent>
           <RightContent>
             <Form />
