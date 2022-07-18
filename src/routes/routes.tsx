@@ -1,6 +1,6 @@
 import { Navigate } from 'react-router-dom'
 
-import Home from '~/pages/Home'
+import Subscribe from '~/pages/Subscribe'
 import Event from '~/pages/Event'
 
 interface Route {
@@ -24,7 +24,7 @@ export const HomeRoute: Route = {
   exact: true,
   path: '/',
   url: '/',
-  element: <Home />
+  element: <Subscribe />
 }
 
 export const EventRoute: Route = {

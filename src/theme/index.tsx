@@ -68,7 +68,7 @@ export const Theme: FC<{ children: JSX.Element }> = ({ children }) => {
   const { dispatch } = useContext()
 
   useEffect(() => {
-    const theme = LocalStorageService.getItem<ThemeState>('@theme') ?? 'light'
+    const theme = LocalStorageService.getItem<ThemeState>('@theme') ?? 'dark'
 
     dispatch({
       type: Types.changeTheme,
