@@ -1,9 +1,8 @@
 import ContentLoader, { IContentLoaderProps } from 'react-content-loader'
-import { ThemeState } from '~/context'
-import { LocalStorageService } from '~/services/LocalStorage'
+import { getTheme } from '~/utils'
 
 const Loader = (props: IContentLoaderProps): JSX.Element => {
-  const theme = LocalStorageService.getItem<ThemeState>('@theme') ?? 'light'
+  const theme = getTheme()
 
   let backgroundColor = '#e9eaf1'
   let foregroundColor = '#dcdde2'

@@ -3,6 +3,7 @@ import { ThemeProvider as ThemeProviderStyled } from 'styled-components'
 import { ThemeState, Types, useContext } from '~/context'
 import { FC, useEffect } from 'react'
 import { LocalStorageService } from '~/services/LocalStorage'
+import { getTheme } from '~/utils'
 
 declare module 'styled-components' {
   export interface DefaultTheme {
@@ -68,7 +69,7 @@ export const Theme: FC<{ children: JSX.Element }> = ({ children }) => {
   const { dispatch } = useContext()
 
   useEffect(() => {
-    const theme = LocalStorageService.getItem<ThemeState>('@theme') ?? 'dark'
+    const theme = getTheme()
 
     dispatch({
       type: Types.changeTheme,

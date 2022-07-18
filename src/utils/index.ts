@@ -1,5 +1,7 @@
 import { format } from 'date-fns'
 import ptBR from 'date-fns/locale/pt-BR'
+import { ThemeState } from '~/context'
+import { LocalStorageService } from '~/services/LocalStorage'
 
 export const { format: formatPrice } = new Intl.NumberFormat('pt-BR', {
   style: 'currency',
@@ -12,3 +14,6 @@ export const formatDate = (date: string, _format = "dd'/'MM'/'yyyy") => {
     locale: ptBR
   })
 }
+
+export const getTheme = () =>
+  LocalStorageService.getItem<ThemeState>('@theme') ?? 'dark'
