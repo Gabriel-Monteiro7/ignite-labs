@@ -22,8 +22,7 @@ const Home: React.FC = () => {
             <Logo />
             <Title>
               Construa uma <ColorfulTitle>aplicação completa</ColorfulTitle>, do
-              zero, com
-              <ColorfulTitle>React JS</ColorfulTitle>
+              zero, com <ColorfulTitle>React JS</ColorfulTitle>
             </Title>
             <Description>
               Em apenas uma semana você vai dominar na prática uma das

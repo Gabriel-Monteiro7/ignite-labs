@@ -9,7 +9,7 @@ export const Container = styled.div.attrs({
 
 export const Content = styled.div.attrs({
   className:
-    'w-full max-w-[1100px] flex items-center justify-between mt-20 mx-auto flex-col lg:flex-row'
+    'w-full max-w-[1100px] flex items-center justify-between mx-auto flex-col lg:flex-row bg-[url("~/assets/images/reactJsIcon.svg")] bg-no-repeat bg-top pt-20 lg:py-20'
 })``
 
 export const LeftContent = styled.div.attrs({
@@ -27,7 +27,7 @@ export const RightContent = styled.div.attrs({
 })``
 
 export const Image = styled.img.attrs({
-  className: 'mt-10',
+  className: '',
   src: PrintImage
 })``
 
