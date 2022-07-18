@@ -1,6 +1,5 @@
 import { useNavigate } from 'react-router-dom'
 import { useForm, SubmitHandler, UseFormRegisterReturn } from 'react-hook-form'
-import { gql, useMutation } from '@apollo/client'
 
 import Button from '~/components/Button'
 import TextField from '~/components/Inputs/TextField'
@@ -8,6 +7,7 @@ import TextField from '~/components/Inputs/TextField'
 import schema from './data'
 
 import { Container, Title, InputsContainer } from './styles'
+import { useCreateSubscriberMutation } from '~/graphql/generated'
 
 interface IFormInputs {
   name: string
@@ -21,24 +21,15 @@ interface IInput {
   register: UseFormRegisterReturn
 }
 
-const CREATE_SUBSCRIBER_MUTATION = gql`
-  mutation CreateSubscriber($name: String!, $email: String!) {
-    createSubscriber(data: { name: $name, email: $email }) {
-      id
-    }
-  }
-`
-
 const Form: React.FC = () => {
   const navigate = useNavigate()
 
-  const [createSubscriber, { loading }] = useMutation(
-    CREATE_SUBSCRIBER_MUTATION
-  )
+  const [createSubscriber, { loading, error }] = useCreateSubscriberMutation()
 
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors }
   } = useForm<IFormInputs>({
     resolver: schema
@@ -71,7 +62,12 @@ const Form: React.FC = () => {
 
       navigate('/event', { replace: true })
       // eslint-disable-next-line no-empty
-    } catch {}
+    } catch {
+      setError('email', {
+        type: 'custom',
+        message: 'E-mail já cadastrado'
+      })
+    }
   }
   return (
     <Container onSubmit={handleSubmit(onSubmit)}>

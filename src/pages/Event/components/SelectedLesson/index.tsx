@@ -1,4 +1,3 @@
-import { gql, useQuery } from '@apollo/client'
 import { useEffect, ReactElement } from 'react'
 import { useNavigate, useParams, useLocation } from 'react-router-dom'
 
@@ -28,34 +27,7 @@ import {
   LoaderVideo,
   LoaderContent
 } from './styles'
-
-const GET_LESSON_BY_SLUG_QUERY = gql`
-  query GetLessonBySlug($slug: String) {
-    lesson(where: { slug: $slug }) {
-      title
-      videoUrl
-      description
-      teacher {
-        bio
-        avatarURL
-        name
-      }
-    }
-  }
-`
-
-interface GetLessonBySlugReponse {
-  lesson: {
-    title: string
-    videoUrl: string
-    description: string
-    teacher: {
-      bio: string
-      avatarURL: string
-      name: string
-    }
-  }
-}
+import { useGetLessonBySlugQuery } from '~/graphql/generated'
 
 type Params = {
   slug?: string
@@ -74,14 +46,11 @@ const SelectedLesson: React.FC = () => {
   const navigate = useNavigate()
   const location = useLocation()
 
-  const { data, loading } = useQuery<GetLessonBySlugReponse>(
-    GET_LESSON_BY_SLUG_QUERY,
-    {
-      variables: {
-        slug
-      }
+  const { data, loading } = useGetLessonBySlugQuery({
+    variables: {
+      slug
     }
-  )
+  })
 
   const buttons: Button[] = [
     {
