@@ -1,6 +1,8 @@
 import { ApolloProvider } from '@apollo/client'
 import { client } from './config/apollo-client'
 
+import '~/utils/yupLocale'
+
 import { Provider } from '~/context'
 
 import Router from './routes'

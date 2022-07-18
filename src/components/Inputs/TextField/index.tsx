@@ -1,6 +1,6 @@
 import { UseFormRegisterReturn } from 'react-hook-form'
 
-import { Container, Label, Input } from './styles'
+import { Container, Label, Input, ErrorMessage } from './styles'
 
 type TextFieldProps = {
   label?: string
@@ -11,11 +11,17 @@ type TextFieldProps = {
   register: UseFormRegisterReturn
 }
 
-const TextField: React.FC<TextFieldProps> = ({ label, register, ...props }) => {
+const TextField: React.FC<TextFieldProps> = ({
+  label,
+  error,
+  register,
+  ...props
+}) => {
   return (
     <Container>
       {label && <Label>{label}</Label>}
-      <Input {...props} {...register} />
+      <Input {...props} {...register} $error={!!error} />
+      {error && <ErrorMessage>{error}</ErrorMessage>}
     </Container>
   )
 }

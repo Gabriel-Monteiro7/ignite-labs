@@ -19,7 +19,7 @@ import {
 type LessonCardProps = {
   title: string
   lessonType: 'class' | 'live'
-  availableAt: string
+  availableAt?: string
   slug: string
 }
 
@@ -30,7 +30,7 @@ type Params = {
 const LessonCard: React.FC<LessonCardProps> = ({
   title,
   lessonType,
-  availableAt,
+  availableAt = '',
   slug
 }) => {
   const params = useParams<Params>()
