@@ -13,7 +13,7 @@ export const Container = styled.button.attrs<IContainer>(({ $variant }) => {
   const variant = variants[$variant]
 
   const className =
-    'h-14 w-full sm:w-60 flex gap-2 justify-center items-center text-white transition-colors rounded font-semibold uppercase text-sm ' +
+    'h-14 w-full sm:w-60 flex gap-2 justify-center items-center text-white transition-colors rounded font-semibold uppercase text-sm disabled:opacity-50 ' +
     variant
 
   return {
